@@ -1,6 +1,6 @@
-# wab23avula
+# db23avula
 
-The purpose of this assignment is to become familiar with using pug templates to dynamically generate web pages on the server side.
+The purpose of this assignment is start working with a server side Mongo data base.
 
 Heroku server : https://wab23avula.herokuapp.com/
 
