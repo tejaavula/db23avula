@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+    - let handbags  =[{Dimensions:"small",color:"Red",price:1000},{Dimensions:"Medium",color:"Black",price:2000},{Dimensions:"Large",color:"White",price:5000}]
+  div(class="container-fluid mt-3")
+  div(class="row")
+    each handbag,index in handbags  
+        div(class="col-sm-2" onclick=`buy(${index})`) #{handbag.Dimensions} - #{handbag.color} - #{handbag.price} 
+  script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }
+     
