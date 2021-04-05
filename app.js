@@ -13,7 +13,6 @@ var usersRouter = require('./routes/users');
 var handbagsRouter=require('./routes/handbags');
 var starsRouter=require('./routes/stars');
 var slotRouter=require('./routes/slot');
-var Handbag=require('./routes/handbags');
 var Handbags = require('./models/handbags')
 
 // We can seed the collection if needed on server start
