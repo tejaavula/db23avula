@@ -3,9 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const connectionString = process.env.MONGO_CON
+const connectionString = process.env.MONGO_CON;
 mongoose = require('mongoose');
-mongoose.connect(connectionString,
+mongoose.connect("mongodb+srv://Tejaswi:$1krishna@cluster0.8oeym.mongodb.net/HandbagsretryWrites=true&w=majority",
 {useNewUrlParser: true, useUnifiedTopology: true});
 
 var indexRouter = require('./routes/index');
@@ -14,24 +14,25 @@ var handbagsRouter=require('./routes/handbags');
 var starsRouter=require('./routes/stars');
 var slotRouter=require('./routes/slot');
 var Handbag=require('./routes/handbags');
+var Handbags = require('./models/handbags')
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything
-  await Handbag.deleteMany();
-  let instance1 = new Handbag({Dimensions:"small", Color:'Red',
+  await Handbags.deleteMany();
+  let instance1 = new Handbags({Dimensions:"small", Color:'Red',
   Price:1000});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
   });
-  let instance2 = new Handbag({Dimensions:"Medium", Color:'Black',
+  let instance2 = new Handbags({Dimensions:"Medium", Color:'Black',
   Price:2000});
   instance2.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("Second object saved")
   });
-  let instance3 = new Handbag({ Dimensions:"Large", Color:'White',
+  let instance3 = new Handbags({ Dimensions:"Large", Color:'White',
   Price:5000 });
   instance3.save(function (err, doc) {
     if (err) return console.error(err);
