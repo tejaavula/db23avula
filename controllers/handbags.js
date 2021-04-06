@@ -1,8 +1,18 @@
 var Handbags = require('../models/handbags')
 // List of all Handbags
 exports.handbags_list = async function (req, res) {
-  res.send('NOT IMPLEMENTED: Handbags list');
+    // List of all Handbags
+    res.send('NOT IMPLEMENTED: Handbags list');
 };
+exports.handbags_list = async function(req, res) {
+    try{
+    theHandbags = await Handbags.find();
+    res.send(theHandbags);
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
+    };
 // for a specific Handbag.
 exports.handbags_detail = function (req, res) {
     res.send('NOT IMPLEMENTED: Handbag detail: ' + req.params.id);
