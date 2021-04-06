@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const connectionString = process.env.MONGO_CON;
 mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://Tejaswi:$1krishna@cluster0.8oeym.mongodb.net/HandbagsretryWrites=true&w=majority",
+mongoose.connect("mongodb+srv://Tejaswi:$1krishna@cluster0.8oeym.mongodb.net/Handbags?retryWrites=true&w=majority",
 {useNewUrlParser: true, useUnifiedTopology: true});
 
 var indexRouter = require('./routes/index');
@@ -14,6 +14,7 @@ var handbagsRouter=require('./routes/handbags');
 var starsRouter=require('./routes/stars');
 var slotRouter=require('./routes/slot');
 var Handbags = require('./models/handbags')
+var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
@@ -57,6 +58,7 @@ app.use('/users', usersRouter);
 app.use('/handbags',handbagsRouter);
 app.use('/stars',starsRouter);
 app.use('/slot',slotRouter);
+app.use('/resource', resourceRouter)
 
 
 // catch 404 and forward to error handler
