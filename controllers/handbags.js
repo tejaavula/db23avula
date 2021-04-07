@@ -19,8 +19,23 @@ exports.handbags_detail = function (req, res) {
 };
 // Handle Handbag create on POST.
 exports.handbags_create_post = async function (req, res) {
-    res.send('NOT IMPLEMENTED: Handbag create POST');
-};
+    console.log(req.body)
+    let document = new Handbags();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"Dimension":"small", "Color":"Red", "Price":1000}
+    document.Dimensions = req.body.Dimensions;
+    document.Color = req.body.Color;
+    document.Price = req.body.Price;
+    try{
+        let result = await document.save();
+        res.send(result);
+        }
+        catch(err){
+        res.error(500,`{"error": ${err}}`);
+        }
+    };
 // Handle Handbags delete form on DELETE.
 exports.handbags_delete = function (req, res) {
     res.send('NOT IMPLEMENTED: Handbag delete DELETE ' + req.params.id);
