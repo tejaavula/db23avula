@@ -6,7 +6,8 @@ block content
   div(class="container-fluid mt-3")
   div(class="row")
     each Handbags,index in handbags  
-        div(class="col-sm-4" onclick=`buy(${index})`) #{Handbags.Dimensions} - #{Handbags.color} - #{Handbags.price} 
+      div(class="col-sm-4")  #{Handbags.Dimensions} - #{Handbags.Color} -#{Handbags.Price}
+     
   script.
      
       function buy(itemNo)
