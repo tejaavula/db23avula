@@ -29,4 +29,14 @@ exports.handbags_delete = function (req, res) {
 exports.handbags_update_put = function (req, res) {
     res.send('NOT IMPLEMENTED: Handbags update PUT' + req.params.id);
 };
-
+// VIEWS
+// Handle a show all view
+exports.handbags_view_all_Page = async function(req, res) {
+    try{
+    theHandbags = await Handbags.find();
+    res.render('handbags', { title: 'Handbag Search Results', results: theHandbags });
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
+    };

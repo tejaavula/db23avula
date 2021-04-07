@@ -2,15 +2,14 @@ extends layout
 
 block content
   h1= title
-    - let handbags  =[{Dimensions:"small",color:"Red",price:1000},{Dimensions:"Medium",color:"Black",price:2000},{Dimensions:"Large",color:"White",price:5000}]
+    - let handbags  = results
   div(class="container-fluid mt-3")
   div(class="row")
-    each handbags ,index in handbags  
-        div(class="col-sm-2" onclick=`buy(${index})`) #{handbag.Dimensions} - #{handbag.color} - #{handbag.price} 
+    each Handbags,index in handbags  
+        div(class="col-sm-4" onclick=`buy(${index})`) #{Handbags.Dimensions} - #{Handbags.color} - #{Handbags.price} 
   script.
      
       function buy(itemNo)
       {
         alert(`You purchased Item ${itemNo+1}`)
       }
-     
