@@ -24,7 +24,7 @@ exports.handbags_create_post = async function (req, res) {
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
-    // {"Dimension":"small", "Color":"Red", "Price":1000}
+    // {"Dimensions":"Stylish", "Color":"Violet", "Price":1500}
     document.Dimensions = req.body.Dimensions;
     document.Color = req.body.Color;
     document.Price = req.body.Price;
