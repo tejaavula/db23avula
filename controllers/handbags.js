@@ -49,9 +49,24 @@ exports.handbags_delete = function (req, res) {
     res.send('NOT IMPLEMENTED: Handbag delete DELETE ' + req.params.id);
 };
 // Handle Handbags update form on PUT.
-exports.handbags_update_put = function (req, res) {
-    res.send('NOT IMPLEMENTED: Handbags update PUT' + req.params.id);
+//Handle handbags update form on PUT.
+exports.handbags_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await Handbags.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.Dimensions) toUpdate.Dimensions = req.body.Dimensions;
+        if(req.body.Color) toUpdate.Color = req.body.Color;
+        if(req.body.Price) toUpdate.Price = req.body.Price;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
+    }
 };
+
 // VIEWS
 // Handle a show all view
 exports.handbags_view_all_Page = async function(req, res) {
