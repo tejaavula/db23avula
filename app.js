@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const connectionString = process.env.MONGO_CON;
 mongoose = require('mongoose');
-mongoose.connect(connectionString,
+mongoose.connect("mongodb+srv://Tejaswi:$1krishna@cluster0.8oeym.mongodb.net/Handbags?retryWrites=true&w=majority",
 {useNewUrlParser: true, useUnifiedTopology: true});
 
 var indexRouter = require('./routes/index');

@@ -13,10 +13,18 @@ exports.handbags_list = async function(req, res) {
     res.error(500,`{"error": ${err}}`);
     }
     };
-// for a specific Handbag.
-exports.handbags_detail = function (req, res) {
-    res.send('NOT IMPLEMENTED: Handbag detail: ' + req.params.id);
+// for a specific handbags.
+exports.handbags_detail = async function(req, res) {
+    console.log("detail"  + req.params.id)
+    try {
+        result = await Handbags.findById( req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
 };
+
 // Handle Handbag create on POST.
 exports.handbags_create_post = async function (req, res) {
     console.log(req.body)
