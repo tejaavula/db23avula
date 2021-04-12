@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  - let handbagsid = toShow._id
+  - let Dimensions = toShow.Dimensions
+  - let Color = toShow.Color
+  - let Price  = toShow.Price
+  div
+    div.row
+      div(class='handbagsAttr mr-3') handbags ID is:
+      div #{handbagsid}
+    div.row
+      div(class='handbagsAttr mr-3') handbags Type is:
+      div #{Dimensions}
+    div.row
+      div(class='handbagsAttr mr-3') handbags Size is:
+      div #{Color}
+    div.row
+      div(class='handbagsAttr mr-3') handbags Cost is:
+      div #{Price}
