@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+
+  - let handbagsid = toShow._id
+  - let Dimensions = toShow.Dimensions
+  - let Color = toShow.Color
+  - let Price = toShow.Price
+  
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{handbagsid}
+  - let actionid = "/resource/handbags/" + handbagsid
+  form(id='handbagsForm', action= actionid, method="PUT")
+    div.form-group
+        label.handbagsAttr(for='Dimensions') Dimensions
+        input#handbagstype(type='text', name='Dimensions', value= Dimensions )
+    div.form-group
+        label.handbagsAttr(for='Color') Color
+        input#size(type='text', name='Color', value= Color )
+    div.form-group
+        label.handbagsAttr(for='Price') Price
+        input#cost(type='number', name='Price', value= Price )
+    input(type="submit")
+
+  script.
+    document.forms['handbagsForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Update succeded")
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Update failed " + error )
+      });
+    });
