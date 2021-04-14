@@ -1,8 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  h1(id="title")= title
 
+  if (toShow == null)
+    h2 No instance to delete
+  else
   - let handbagsid = toShow._id
   - let Dimensions = toShow.Dimensions
   - let Color = toShow.Color
@@ -11,14 +14,14 @@ block content
   div
     div.row
       div(class='handbagsAttr mr-3') handbags ID is:
-      div #{handbagsid}
+      div(class="values") #{handbagsid}
     div.row
       div(class='handbagsAttr mr-3') Dimension is:
-      div #{Dimensions}
+      div(class="values") #{Dimensions}
     div.row
       div(class='handbagsAttr mr-3') Color is:
-      div #{Color}
+      div(class="values") #{Color}
     div.row
       div(class='handbagsAttr mr-3') Price is:
-      div #{Price}
+      div(class="values") #{Price}
     

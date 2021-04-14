@@ -1,8 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  h1(id="title")= title
 
+  if (toShow == null)
+    h2 No instance to delete
+  else
   - let handbagsid = toShow._id
   - let Dimensions = toShow.Dimensions
   - let Color = toShow.Color

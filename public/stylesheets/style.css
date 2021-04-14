@@ -9,5 +9,31 @@ a {
 }
 .handbagsAttr {
   background-color: aquamarine;
-  width: 120px;
+  width: 200px;
+  margin: 5px;
+  text-align: center;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bolder;
+
+}
+input[type=submit]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.values{
+ background-color: azure;
+  border-radius: 1px;
+}
+#title{
+  color: lightcoral;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: underline;
 }
