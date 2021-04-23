@@ -11,6 +11,7 @@ exports.handbags_list = async function(req, res) {
     }
     catch(err){
     res.error(500,`{"error": ${err}}`);
+    res.status(500);
     }
     };
 // for a specific handbags.
@@ -41,7 +42,11 @@ exports.handbags_create_post = async function (req, res) {
         res.send(result);
         }
         catch(err){
-        res.error(500,`{"error": ${err}}`);
+            console.log(err)
+            res.send({"name":err.name,"message":err.message})
+            res.send(err)
+            res.status(500);
+        //res.error(500,`{"error": ${err}}`);
         }
     };
 // Handle handbags delete on DELETE.
@@ -85,6 +90,7 @@ exports.handbags_view_all_Page = async function(req, res) {
     }
     catch(err){
     res.error(500,`{"error": ${err}}`);
+    res.status(500);
     }
     };
 // Handle a show one view with id specified by query
